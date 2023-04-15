@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     //Move Funtion
     public void Move(Vector3 move)
     {
+
         _rigidbody2D.MovePosition(transform.position + move * _speed * Time.deltaTime);
     }
 }

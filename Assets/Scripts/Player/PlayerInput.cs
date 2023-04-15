@@ -12,6 +12,10 @@ public class PlayerInput : MonoBehaviour
     //Public Variables
     public bool CanInteract = false;
     public bool IsInteracting = false;
+
+    //testing
+    public Animator animator;
+
     //Private Variables
     Vector3 _move;
 
@@ -34,6 +38,9 @@ public class PlayerInput : MonoBehaviour
                 IsInteracting = true;
             }
         }
+
+        animator.SetFloat("moveX", _move.x);
+        animator.SetFloat("moveY", _move.y);
     }
     // Update is called once per frame
     void FixedUpdate()
