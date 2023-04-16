@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     //List<Item> _itemList = new List<Item>();//List for Items
     //public List<GameObject> _itemList = new List<GameObject>();//List for Items
 
-    int _coins;
+    public int _coins;
 
     InventoryManager _inventoryManager;
     PlayerAnimationManager _playerAnimationManager;

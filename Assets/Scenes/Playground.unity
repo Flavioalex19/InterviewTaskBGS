@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e408225c94460ba4dba4ba025a9ab25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 0
 --- !u!95 &177611680
 Animator:
   serializedVersion: 4
@@ -6024,6 +6025,7 @@ MonoBehaviour:
   _main_Character_Inventory: {fileID: 939745162}
   _store_gridLayoutGroup: {fileID: 745538553}
   _currentEquipedItem: 0
+  _totalCoins: 10
 --- !u!1 &1251179316
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,6 +6865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e408225c94460ba4dba4ba025a9ab25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 0
 --- !u!1 &2120464890
 GameObject:
   m_ObjectHideFlags: 0

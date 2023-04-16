@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField]GridLayoutGroup _store_gridLayoutGroup;//Grid Layout for the character in the Shop Panel
 
     [SerializeField] int _currentEquipedItem;
+    public float _totalCoins;
 
 
     private void Awake()

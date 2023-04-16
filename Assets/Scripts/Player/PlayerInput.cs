@@ -44,7 +44,7 @@ public class PlayerInput : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                IsInventoryOpen = true;
+                IsInventoryOpen = !IsInventoryOpen;
             }
         }
 

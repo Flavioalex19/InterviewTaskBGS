@@ -21,6 +21,7 @@ public class ItemInventory : MonoBehaviour
         input = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         inventoryManager = GameObject.Find("Inventory Manager").GetComponent<InventoryManager>();
         _item_Equip_Button.onClick.AddListener(ChangeEquipedItem);
+        _item_Sell_Button.onClick.AddListener(SellItem);
     }
 
     // Update is called once per frame
@@ -67,7 +68,9 @@ public class ItemInventory : MonoBehaviour
 
     void SellItem()
     {
-        //I can only sell unequiped items
+        inventoryManager._totalCoins += inventoryManager._itemList[MyItemIndex-1].Cost;
+        inventoryManager._itemList.Remove(inventoryManager._itemList[MyItemIndex-1]);
+        Destroy(gameObject);
 
     }
 }
