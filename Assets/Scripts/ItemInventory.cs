@@ -10,7 +10,8 @@ public class ItemInventory : MonoBehaviour
     //UI
     [Header("UI Elements")]
     [SerializeField] Image _item_Image;
-    [SerializeField] Button _item_Button;
+    [SerializeField] Button _item_Sell_Button;
+    [SerializeField] Button _item_Equip_Button;
 
     // Start is called before the first frame update
     void Start()

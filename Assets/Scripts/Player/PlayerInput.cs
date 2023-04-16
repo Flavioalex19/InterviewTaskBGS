@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 /// <summary>
 /// Script Made by Flavio Alexandre
@@ -15,6 +16,8 @@ public class PlayerInput : MonoBehaviour
 
     //testing
     public Animator animator;
+    public AnimatorController controller;//Change the costume animations and character sprite
+    
 
     //Private Variables
     Vector3 _move;
@@ -23,14 +26,18 @@ public class PlayerInput : MonoBehaviour
     //Components
     Movement _movement;
 
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _movement = GetComponent<Movement>();
+        
+        
     }
     private void Update()
     {
+        animator.runtimeAnimatorController = controller;
         if(CanInteract)
         {
             if(Input.GetKeyDown(KeyCode.Space))

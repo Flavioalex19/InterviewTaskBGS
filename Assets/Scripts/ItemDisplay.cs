@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Script Made by Flavio Alexandre
+/// This Script is responsible for the item being sold on the shop
+/// </summary>
 public class ItemDisplay : MonoBehaviour
 {
 
@@ -28,28 +31,31 @@ public class ItemDisplay : MonoBehaviour
 
     void AddItemToPlayerInventory()
     {
+        if (_inventoryManager.CheckIfItemIsOntheList(_item))
+        {
+            if (Amount > 0)
+            {
+                Amount--;//Protection to not go negative
+            }
+        }
+        else
+        {
+            if (Amount > 0)
+            {
+                Amount--;//Protection to not go negative
+                _inventoryManager.AddItem(_item);
+            }
+            
+        }
+        /*
         //_playerManager._itemList.Add(this.gameObject);
         if (_item.MyItemType == ItemType.Consumable)
         {
-            /*
-            if (_playerManager.CheckIfItemIsOntheList(_item))
-            {
-                
-                if (Amount > 0)
-                {
-                    Amount--;
-                }
-            }
-            else
-            {
-                _playerManager._itemList.Add(this.gameObject);
-            }
-            */
             if (_inventoryManager.CheckIfItemIsOntheList(_item))
             {
                 if (Amount > 0)
                 {
-                    Amount--;
+                    Amount--;//Protection to not go negative
                 }
             }
             else
@@ -57,6 +63,7 @@ public class ItemDisplay : MonoBehaviour
                 _inventoryManager.AddItem(_item);
             }
         }
+        */
 
     }
 }

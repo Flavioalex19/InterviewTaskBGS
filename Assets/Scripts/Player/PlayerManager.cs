@@ -10,10 +10,19 @@ public class PlayerManager : MonoBehaviour
 
     int _coins;
 
+    public InventoryManager _inventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _inventoryManager = GameObject.Find("Inventory Manager").GetComponent<InventoryManager>();
+
+        //Verify wicht armor is equiped at the  start
+        for (int i = 0; i < _itemList.Count; i++)
+        {
+            
+        }
+
     }
 
     // Update is called once per frame
@@ -21,26 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
         
     }
-    public bool CheckIfItemIsOntheList(Item item)
-    {
-        bool isOnTheList = false;
-        for (int i = 0; i < _itemList.Count; i++)
-        {
-            if (item.ItemName == _itemList[i].GetComponent<ItemDisplay>()._item.ItemName)
-            {
-                isOnTheList = true;
-                return  true;
-
-            }
-            else
-            {
-                isOnTheList = false;
-
-
-            }
-        }
-        return isOnTheList;
-    }
+    
     public void AddItem(GameObject item)
     {
         _itemList.Add(item);

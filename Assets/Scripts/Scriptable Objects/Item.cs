@@ -16,7 +16,10 @@ public class Item : ScriptableObject
     public ItemType MyItemType;
 
     public float Cost;
+
+    public int Index;
     
+    public bool IsEquiped = false;
 
     public Sprite ItemSprite;
 }

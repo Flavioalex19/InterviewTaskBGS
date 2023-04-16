@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 /// <summary>
 /// Script made by Flavio Alexandre
 /// Script responsible for managing the character inventory
@@ -11,10 +12,32 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public List<Item> _itemList = new List<Item>();//List for Items
-    public GameObject Item_Inventory;
+    public GameObject Item_Inventory;//Prefab to be added tp the grid
 
-    [SerializeField]GridLayoutGroup _gridLayoutGroup;
+    [SerializeField] GridLayoutGroup _main_Character_Inventory;
+    [SerializeField]GridLayoutGroup _store_gridLayoutGroup;
 
+
+    private void Awake()
+    {
+        //Verify if in the start of the game there is any items on the inventory list and update the ui(equipemt UI and Store UI)
+        if (_itemList.Count > 0)
+        {
+            for (int i = 0; i < _itemList.Count; i++)
+            {
+                GameObject newInventoryItem;
+                newInventoryItem = Instantiate(Item_Inventory);
+                newInventoryItem.transform.SetParent(_store_gridLayoutGroup.transform);//Add into the store UI for the player
+                newInventoryItem.transform.localScale = Vector3.one;
+                newInventoryItem.GetComponent<ItemInventory>().SetImage(_itemList[i]);
+            }
+        }
+    }
+
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {
@@ -26,7 +49,7 @@ public class InventoryManager : MonoBehaviour
         GameObject newInventoryItem;
         _itemList.Add(item);
         newInventoryItem = Instantiate(Item_Inventory);
-        newInventoryItem.transform.SetParent(_gridLayoutGroup.transform);
+        newInventoryItem.transform.SetParent(_store_gridLayoutGroup.transform);
         newInventoryItem.transform.localScale = Vector3.one;
         newInventoryItem.GetComponent<ItemInventory>().SetImage(item);
 
