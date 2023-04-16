@@ -19,14 +19,13 @@ public class ItemDisplay : MonoBehaviour
     [SerializeField] Button _item_Button;
 
     //variables
-    public int Amount;
+    public int Amount;//Amount of the item to sell
 
     // Start is called before the first frame update
     void Start()
     {
-        _item_Button.onClick.AddListener(AddItemToPlayerInventory);
-        //_item_Image = GetComponent<Image>();
-        _item_Image.sprite = _item.ItemSprite;
+        _item_Button.onClick.AddListener(AddItemToPlayerInventory);//Sell Button
+        _item_Image.sprite = _item.ItemSprite;//Change for the correspondent sprite
     }
 
     void AddItemToPlayerInventory()

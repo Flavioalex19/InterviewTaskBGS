@@ -8,23 +8,18 @@ using UnityEngine;
 /// </summary>
 public class UiManager : MonoBehaviour
 {
-
     public PlayerInput _playerInput;
-    public Shopkeeper Shopkeeper;//adjust this
-
+    [Header("UI Shopkeeper")]
+    public Shopkeeper Shopkeeper;
     //Shop Panel Variables
     [SerializeField] Animator ui_itemShop_animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //if(Shopkeeper == null)Shopkeeper = GameObject.FindGameObjectWithTag("Shopkeeper").GetComponent<Shopkeeper>();
-    }
+    [SerializeField] Animator ui_Inventory_animator;
 
     // Update is called once per frame
     void Update()
     {
-        //ui_itemShop_animator.SetBool("isOn", _playerInput.IsInteracting);
         ui_itemShop_animator.SetBool("isOn", Shopkeeper._panelOn);
+        ui_Inventory_animator.SetBool("isOn", _playerInput.IsInventoryOpen);
     }
 }

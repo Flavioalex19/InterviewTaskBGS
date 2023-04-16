@@ -13,14 +13,10 @@ public class PlayerInput : MonoBehaviour
     //Public Variables
     public bool CanInteract = false;
     public bool IsInteracting = false;
-
-    //testing
-    public Animator animator;
-    public AnimatorController controller;//Change the costume animations and character sprite
-    
+    public bool IsInventoryOpen = false;
 
     //Private Variables
-    Vector3 _move;
+    public Vector3 _move;
 
 
     //Components
@@ -37,7 +33,6 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
-        animator.runtimeAnimatorController = controller;
         if(CanInteract)
         {
             if(Input.GetKeyDown(KeyCode.Space))
@@ -45,9 +40,15 @@ public class PlayerInput : MonoBehaviour
                 IsInteracting = true;
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                IsInventoryOpen = true;
+            }
+        }
 
-        animator.SetFloat("moveX", _move.x);
-        animator.SetFloat("moveY", _move.y);
+        
     }
     // Update is called once per frame
     void FixedUpdate()

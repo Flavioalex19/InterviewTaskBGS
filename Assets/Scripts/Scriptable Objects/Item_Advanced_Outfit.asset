@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8397eac0b7db45e4fb9f0f8e89d8b853, type: 3}
-  m_Name: Armor 0
+  m_Name: Item_Advanced_Outfit
   m_EditorClassIdentifier: 
-  ItemName: Simple Armor
-  Description: A Armor for Rookies Knights
+  ItemName: Advanced Outfit
+  Description: 
   MyItemType: 1
-  Cost: 3
-  Index: 0
-  IsEquiped: 1
-  ItemSprite: {fileID: 0}
+  Cost: 0
+  Index: 1
+  IsEquiped: 0
+  ItemSprite: {fileID: 21304488, guid: 31e24ed712cbf3b4595a8dbc9b18aa9c, type: 3}

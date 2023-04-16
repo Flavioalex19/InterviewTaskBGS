@@ -5,7 +5,7 @@ using UnityEngine;
 public enum ItemType
 {
     Consumable,
-    Armor
+    Outfit
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
@@ -21,5 +21,6 @@ public class Item : ScriptableObject
     
     public bool IsEquiped = false;
 
-    public Sprite ItemSprite;
+    public Sprite ItemSprite;//Sprit to show on the inventory or shop
+    
 }

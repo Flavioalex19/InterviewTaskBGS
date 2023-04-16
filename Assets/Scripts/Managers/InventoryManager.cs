@@ -12,10 +12,12 @@ using static UnityEditor.Progress;
 public class InventoryManager : MonoBehaviour
 {
     public List<Item> _itemList = new List<Item>();//List for Items
-    public GameObject Item_Inventory;//Prefab to be added tp the grid
+    public GameObject Item_Inventory;//Prefab to be added to the grid
 
-    [SerializeField] GridLayoutGroup _main_Character_Inventory;
-    [SerializeField]GridLayoutGroup _store_gridLayoutGroup;
+    [SerializeField] GridLayoutGroup _main_Character_Inventory;//Grid layout for the Inventory
+    [SerializeField]GridLayoutGroup _store_gridLayoutGroup;//Grid Layout for the character in the Shop Panel
+
+    [SerializeField] int _currentEquipedItem;
 
 
     private void Awake()
@@ -30,6 +32,14 @@ public class InventoryManager : MonoBehaviour
                 newInventoryItem.transform.SetParent(_store_gridLayoutGroup.transform);//Add into the store UI for the player
                 newInventoryItem.transform.localScale = Vector3.one;
                 newInventoryItem.GetComponent<ItemInventory>().SetImage(_itemList[i]);
+                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = _itemList[i].Index;
+                //---------------------------------
+                newInventoryItem = Instantiate(Item_Inventory);
+                newInventoryItem.transform.SetParent(_main_Character_Inventory.transform);
+                newInventoryItem.transform.localScale = Vector3.one;
+                newInventoryItem.GetComponent<ItemInventory>().SetImage(_itemList[i]);
+                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = _itemList[i].Index;
+                //_currentEquipedItem = _itemList[i].Index;
             }
         }
     }
@@ -46,6 +56,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        if (item.MyItemType == ItemType.Outfit) item.IsEquiped = false;
         GameObject newInventoryItem;
         _itemList.Add(item);
         newInventoryItem = Instantiate(Item_Inventory);
