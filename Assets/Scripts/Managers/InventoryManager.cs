@@ -33,13 +33,13 @@ public class InventoryManager : MonoBehaviour
                 newInventoryItem.transform.SetParent(_store_gridLayoutGroup.transform);//Add into the store UI for the player
                 newInventoryItem.transform.localScale = Vector3.one;
                 newInventoryItem.GetComponent<ItemInventory>().SetImage(_itemList[i]);
-                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = /*_itemList[i].Index*/ i;
+                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = _itemList[i].Index;
                 //---------------------------------
                 newInventoryItem = Instantiate(Item_Inventory);
                 newInventoryItem.transform.SetParent(_main_Character_Inventory.transform);
                 newInventoryItem.transform.localScale = Vector3.one;
                 newInventoryItem.GetComponent<ItemInventory>().SetImage(_itemList[i]);
-                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = /*_itemList[i].Index*/ i;
+                newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = _itemList[i].Index;
                 //_currentEquipedItem = _itemList[i].Index;
             }
         }
@@ -57,13 +57,13 @@ public class InventoryManager : MonoBehaviour
         newInventoryItem.transform.SetParent(_store_gridLayoutGroup.transform);
         newInventoryItem.transform.localScale = Vector3.one;
         newInventoryItem.GetComponent<ItemInventory>().SetImage(item);
-        newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = /*item.Index*/_itemList.Count -1;
+        newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = item.Index;
 
         newInventoryItem = Instantiate(Item_Inventory);
         newInventoryItem.transform.SetParent(_main_Character_Inventory.transform);
         newInventoryItem.transform.localScale = Vector3.one;
         newInventoryItem.GetComponent<ItemInventory>().SetImage(item);
-        newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = /*item.Index*/_itemList.Count -1;
+        newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = item.Index;
 
 
     }
@@ -73,9 +73,21 @@ public class InventoryManager : MonoBehaviour
         {
             if (_itemList[i].Index == index)
             {
+                _itemList[i].IsEquiped = false;
                 _itemList.Remove(_itemList[i]);
             }
         }
+        /*for (int i = 0; i < _main_Character_Inventory.transform.childCount; i++)
+        {
+            if (_main_Character_Inventory.transform.GetChild(i).GetComponent<ItemInventory>().MyItemIndex == index)
+            {
+                Transform oldItem = _main_Character_Inventory.transform.GetChild(i);
+                oldItem.parent = null;
+                //Destroy(oldItem);
+               
+                
+            }
+        }*/
     }
 
     public bool CheckIfItemIsOntheList(Item item)
