@@ -11,14 +11,13 @@ public class PlayerInput : MonoBehaviour
 
     //Variables
     //Public Variables
+    #region Public Variables
     public bool CanInteract = false;
     public bool IsInteracting = false;
     public bool IsInventoryOpen = false;
-
+    #endregion
     //Private Variables
     public Vector3 _move;
-
-
     //Components
     Movement _movement;
 
@@ -33,15 +32,19 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
+        //If the p´layer com interct with the interactable
         if(CanInteract)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            //display the shop panel
+            if(Input.GetKeyDown(KeyCode.F))
             {
-                IsInteracting = true;
+                print("Space");
+                IsInteracting = !IsInteracting;
             }
         }
         else
         {
+            //Display the inventory
             if (Input.GetKeyDown(KeyCode.I))
             {
                 IsInventoryOpen = !IsInventoryOpen;

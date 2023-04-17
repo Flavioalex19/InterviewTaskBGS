@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This script is not being used anymore!!!!!!!!!!!!!!!!!!!
+/// </summary>
 public class PlayerManager : MonoBehaviour
 {
 
@@ -30,12 +32,13 @@ public class PlayerManager : MonoBehaviour
         //Verify wicht armor is equiped at the  start
         for (int i = 0; i < _inventoryManager._itemList.Count; i++)
         {
-            if(_inventoryManager._itemList[i].MyItemType == ItemType.Outfit && _inventoryManager._itemList[i].IsEquiped)
+            if (_inventoryManager._itemList[i].MyItemType == ItemType.Outfit && _inventoryManager._itemList[i].IsEquiped)
             {
-                _playerAnimationManager.ChangeAnimatorController(transform.GetChild(_inventoryManager._itemList[i].Index).GetComponent<Outfits>().Outfit.AnimatorOverrideController); 
+                _playerAnimationManager.ChangeAnimatorController(transform.GetChild(_inventoryManager._itemList[i].Index).GetComponent<Outfits>().Outfit.AnimatorOverrideController);
 
 
             }
+            else return;
         }
 
     }
@@ -67,8 +70,9 @@ public class PlayerManager : MonoBehaviour
                 }
                 else
                 {
-                    _inventoryManager._itemList[0].IsEquiped = true;
+                    //_inventoryManager._itemList[0].IsEquiped = true;
                     //_playerAnimationManager.ChangeAnimatorController(transform.GetChild(0).GetComponent<Outfits>().Outfit.AnimatorOverrideController);
+
                 }
                 //print(_inventoryManager._itemList[i].ItemName);
 

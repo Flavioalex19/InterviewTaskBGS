@@ -4,32 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
 /// Script Made by Flavio Alexandre
-/// This Script is responsible for the item being sold on the shop
+/// This Script is responsible for the item that is being sold on the shop
+/// The script manage the addition of item into the player inventory , verifying what kind of item is and if it is possible to add into the inventory 
 /// </summary>
 public class ItemDisplay : MonoBehaviour
 {
-
-    public Item _item;
-    [SerializeField] PlayerManager _playerManager;
-    [SerializeField] InventoryManager _inventoryManager;
-
+    #region Publib Variables
+    public Item _item;//The item tha will be sold
+    //variables
+    public int Amount;//Amount of the item to sell
+    #endregion
+    #region Private Variables
+    [SerializeField] InventoryManager _inventoryManager;//reference of the inventory manager
     //UI
     [Header("UI Elements")]
     [SerializeField] Image _item_Image;
     [SerializeField] Button _item_Button;
+    #endregion
 
-    //variables
-    public int Amount;//Amount of the item to sell
 
     // Start is called before the first frame update
     void Start()
     {
-        _item_Button.onClick.AddListener(AddItemToPlayerInventory);//Sell Button
-        _item_Image.sprite = _item.ItemSprite;//Change for the correspondent sprite
-    }
+        _inventoryManager = GameObject.Find("Inventory Manager").GetComponent<InventoryManager>();
 
+        _item_Button.onClick.AddListener(AddItemToPlayerInventory);//Sell Button
+        _item_Image.sprite = _item.ItemSprite;//Change for the correspondent item sprite
+    }
+    //Add item into the inventory
     void AddItemToPlayerInventory()
     {
+        //Check if the item is already in the inventory
         if (_inventoryManager.CheckIfItemIsOntheList(_item))
         {
             /*
@@ -38,37 +43,21 @@ public class ItemDisplay : MonoBehaviour
                 Amount--;//Protection to not go negative
             }
             */
+            return;
         }
         else
         {
-            /*
-            if (Amount > 0)
+            //Verify if the item is avaliable in the shop
+            if (Amount > 0 && !_inventoryManager.CheckIfItemIsOntheList(_item))
             {
-                Amount--;//Protection to not go negative
-                _inventoryManager.AddItem(_item);
+                //Amount--;//Protection to not go negative
+                _inventoryManager.AddItem(_item);//Add Item
             }
-            */
+            
             //Amount--;//Protection to not go negative
-            _inventoryManager.AddItem(_item);
+            //_inventoryManager.AddItem(_item);
 
         }
-        /*
-        //_playerManager._itemList.Add(this.gameObject);
-        if (_item.MyItemType == ItemType.Consumable)
-        {
-            if (_inventoryManager.CheckIfItemIsOntheList(_item))
-            {
-                if (Amount > 0)
-                {
-                    Amount--;//Protection to not go negative
-                }
-            }
-            else
-            {
-                _inventoryManager.AddItem(_item);
-            }
-        }
-        */
 
     }
 }
