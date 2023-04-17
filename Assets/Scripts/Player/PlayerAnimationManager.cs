@@ -11,6 +11,7 @@ public class PlayerAnimationManager : MonoBehaviour
     //Components
     PlayerInput _playerInput;
     public Animator _playerAnimator;
+    public AnimatorController MyController;
     public AnimatorOverrideController _controller;
     public InventoryManager inventoryManager;
 

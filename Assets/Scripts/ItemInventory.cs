@@ -53,7 +53,7 @@ public class ItemInventory : MonoBehaviour
             if (inventoryManager._itemList[i].IsEquiped && inventoryManager._itemList[i].Index != MyItemIndex)
             {
                 inventoryManager._itemList[i].IsEquiped = false;
-                print(inventoryManager._itemList[i].ItemName + "Has changed");
+                print(inventoryManager._itemList[i].ItemName + " Has changed");
             }
         }
         for (int i = 0;i < inventoryManager._itemList.Count; i++)
@@ -61,16 +61,18 @@ public class ItemInventory : MonoBehaviour
             if (inventoryManager._itemList[i].Index == MyItemIndex)
             {
                 inventoryManager._itemList[i].IsEquiped = true;
-                print(inventoryManager._itemList[i].ItemName + "new equip");
+                print(inventoryManager._itemList[i].ItemName + " new equip");
             }
         }
     }
-
+    //todo put this on inventory manager
     void SellItem()
     {
-        inventoryManager._totalCoins += inventoryManager._itemList[MyItemIndex-1].Cost;
-        inventoryManager._itemList.Remove(inventoryManager._itemList[MyItemIndex-1]);
+        //inventoryManager._totalCoins += inventoryManager._itemList[MyItemIndex].Cost;
+        //inventoryManager._itemList.Remove(inventoryManager._itemList[MyItemIndex]);//remove from the list
+        inventoryManager.RemoveFromInventory(MyItemIndex);
         Destroy(gameObject);
+        //if (this.MyItemIndex > 0) MyItemIndex--;
 
     }
 }

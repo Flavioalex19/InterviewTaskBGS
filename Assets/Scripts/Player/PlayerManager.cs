@@ -48,6 +48,11 @@ public class PlayerManager : MonoBehaviour
 
 
             }
+            else _playerAnimationManager._playerAnimator.runtimeAnimatorController = _playerAnimationManager.MyController;
+        }
+        if (_inventoryManager._itemList.Count == 0)
+        {
+            _playerAnimationManager._playerAnimator.runtimeAnimatorController = _playerAnimationManager.MyController;
         }
     }
     

@@ -5,7 +5,12 @@ using UnityEngine;
 public class Shopkeeper : Interaction
 {
 
-    public bool _panelOn = false; 
+    public bool _panelOn = false;
+
+    private void Start()
+    {
+        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+    }
 
     // Update is called once per frame
     void Update()

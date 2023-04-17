@@ -32,19 +32,25 @@ public class ItemDisplay : MonoBehaviour
     {
         if (_inventoryManager.CheckIfItemIsOntheList(_item))
         {
+            /*
             if (Amount > 0)
             {
                 Amount--;//Protection to not go negative
             }
+            */
         }
         else
         {
+            /*
             if (Amount > 0)
             {
                 Amount--;//Protection to not go negative
                 _inventoryManager.AddItem(_item);
             }
-            
+            */
+            //Amount--;//Protection to not go negative
+            _inventoryManager.AddItem(_item);
+
         }
         /*
         //_playerManager._itemList.Add(this.gameObject);

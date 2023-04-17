@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Advanced Outfit
   Description: 
   MyItemType: 1
-  Cost: 0
+  Cost: 7
   Index: 1
   IsEquiped: 0
   ItemSprite: {fileID: 21304488, guid: 31e24ed712cbf3b4595a8dbc9b18aa9c, type: 3}
