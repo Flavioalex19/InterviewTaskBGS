@@ -12,7 +12,13 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        ActionInput();
+        //ActionInput();
+        if (_playerInput.IsInteracting)
+        {
+
+            ActionInput();
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,10 +37,10 @@ public class Interaction : MonoBehaviour
 
     }
     //Verify if the player pressed the button to interect
-    public virtual bool ActionInput()
+    public virtual void ActionInput()
     {
-        if (_playerInput.IsInteracting) return true;
-        else return false;
+        //if (_playerInput.IsInteracting) return true;
+        //else return false;
 
     }
 }

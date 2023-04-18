@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 /// <summary>
 /// Script Made by Flavio Alexandre
@@ -15,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public bool CanInteract = false;
     public bool IsInteracting = false;
     public bool IsInventoryOpen = false;
+    public bool IsMenuOpen = false;
     #endregion
     //Private Variables
     public Vector3 _move;
@@ -27,38 +27,45 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         _movement = GetComponent<Movement>();
-        
-        
     }
     private void Update()
     {
-        //If the p´layer com interct with the interactable
+        //If the player can interact with the interactable
         if(CanInteract)
         {
+            
             //display the shop panel
             if(Input.GetKeyDown(KeyCode.F))
             {
-                print("Space");
                 IsInteracting = !IsInteracting;
             }
         }
         else
         {
-            //Display the inventory
+            //Display the inventory panel
             if (Input.GetKeyDown(KeyCode.I))
             {
                 IsInventoryOpen = !IsInventoryOpen;
             }
         }
 
-        
+        //Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            IsMenuOpen = !IsMenuOpen;
+        }
+
+
+
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Get input values
         _move = Vector3.zero;
         _move.x = Input.GetAxis("Horizontal");
         _move.y = Input.GetAxis("Vertical");
+        //Execute movement
         _movement.Move(_move);
     }
 }

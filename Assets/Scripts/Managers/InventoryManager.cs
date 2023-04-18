@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
+
 /// <summary>
 /// Script made by Flavio Alexandre
 /// Script responsible for managing the whole character inventory
@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        /*
+        
         //Verify if in the start of the game there is any items on the inventory list and update the ui(equipemt UI and Store UI)
         if (_itemList.Count > 0)
         {
@@ -46,7 +46,7 @@ public class InventoryManager : MonoBehaviour
                 newInventoryItem.GetComponent<ItemInventory>().MyItemIndex = _itemList[i].Index;
                 //_currentEquipedItem = _itemList[i].Index;
             }
-        }*/
+        }
         
     }
 

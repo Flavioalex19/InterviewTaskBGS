@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Progress;
 using Unity.VisualScripting;
 /// <summary>
 /// Script made by Flavio Alexandre
@@ -90,11 +89,12 @@ public class ItemInventory : MonoBehaviour
     }
     void Sell()
     {
-        gameObject.transform.SetParent(null);
+        
         for (int i = 0; i < _inventoryManager._itemList.Count; i++)
         {
             if (_inventoryManager._itemList[i].Index == MyItemIndex)
             {
+                _inventoryManager._itemList[i].IsEquiped = false;
                 _inventoryManager._itemList.Remove(_inventoryManager._itemList[i]);
                 //Remove from inventory grid
                 if(_inventoryManager._main_Character_Inventory.transform.GetChild(i).GetComponent<ItemInventory>().MyItemIndex == MyItemIndex) 
@@ -103,6 +103,7 @@ public class ItemInventory : MonoBehaviour
 
             }
         }
+        gameObject.transform.SetParent(null);
         /*
         _inventoryManager._itemList.Remove(_inventoryManager._itemList[MyItemIndex]);//remove from the list
         _inventoryManager.SellItem(gameObject);//Remove from inventory Panel

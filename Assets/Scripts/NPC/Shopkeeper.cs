@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /// Script made by Flavio Alexandre
 /// This Script was made, at the start, for the only npc on the project.
 /// Through the development, the idea of a new npc to guide the player to the item shop
-///Instead of create a new script derivative from interaction, i opted for use this script instead to gain time
+///Instead of create a new script derivative from interaction, i opted for use this script instead
 /// </summary>
 public class Shopkeeper : Interaction
 {
@@ -32,7 +32,7 @@ public class Shopkeeper : Interaction
         _dialogueManager = GameObject.Find("Dialogue Manager").GetComponent<DialogueManager>();
         button_next_Line = GameObject.Find("Next Button").GetComponent<Button>();
         button_close_Panel = GameObject.Find("Close Panel").GetComponent<Button>();
-
+        //Set up buttons
         button_next_Line.onClick.AddListener(DialogueForward);
         button_close_Panel.onClick.AddListener(SetIsInteracting);
     }
@@ -40,13 +40,12 @@ public class Shopkeeper : Interaction
     // Update is called once per frame
     void Update()
     {
-        //if the ´layer is on the trigger
+        //if the player has entered the trigger
         if(_playerInput != null)
         {
-
+            //_uiManager._press_Button_text.SetText("Press F To Enter");
             if (_playerInput.IsInteracting) 
             {
-                print("Interaction");
                 _panelOn = true;
                 _playerInput.enabled = false;
                 
@@ -57,7 +56,8 @@ public class Shopkeeper : Interaction
                 _playerInput.enabled = true;
             }
             
-
+            
+            
         }
 
        
@@ -89,5 +89,6 @@ public class Shopkeeper : Interaction
     {
         yield return new WaitForSeconds(1);
     }
+
     
 }
