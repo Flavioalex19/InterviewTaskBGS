@@ -72,13 +72,10 @@ public class PlayerAnimationManager : MonoBehaviour
                     //ChangeAnimatorController(transform.GetChild(0).GetComponent<Outfits>().Outfit.AnimatorOverrideController);
 
                 }
-                //print(_inventoryManager._itemList[i].ItemName);
-
             }
             //else hasItemEquiped = true;
             //else _playerAnimator.runtimeAnimatorController = _playerAnimationManager.MyController;
         }
-        //CheckOutfit();
         if (_inventoryManager._itemList.Count == 0)
         {
             _playerAnimator.runtimeAnimatorController = MyController;
@@ -89,25 +86,5 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         _controller = animatorController;
         _playerAnimator.runtimeAnimatorController = _controller;
-    }
-
-    public void CheckOutfit()
-    {
-        for (int i = 0; i < _inventoryManager._itemList.Count; i++)
-        {
-            //If the item is a outfit and is equiped
-            if (_inventoryManager._itemList[i].MyItemType == ItemType.Outfit && _inventoryManager._itemList[i].IsEquiped)
-            {
-                //Change to the corresponding animation controller  
-                ChangeAnimatorController(transform.GetChild(_inventoryManager._itemList[i].Index).GetComponent<Outfits>().Outfit.AnimatorOverrideController);
-                return;
-
-            }
-            else if(_inventoryManager._itemList[i].MyItemType == ItemType.Outfit && !_inventoryManager._itemList[i].IsEquiped) 
-            {
-
-                _playerAnimator.runtimeAnimatorController = MyController;
-            }
-        }
     }
 }

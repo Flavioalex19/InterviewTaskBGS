@@ -10,7 +10,6 @@ public class ChangeScenes : Interaction
 
     private void Start()
     {
-        //_playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _uiManager = GameObject.Find("UI Manager").GetComponent<UiManager>();
     }
     // Update is called once per frame
@@ -18,7 +17,6 @@ public class ChangeScenes : Interaction
     {
         if (_playerInput != null)
         {
-            //Input.GetKeyDown(KeyCode.E)
             if (_playerInput.IsInteracting)
             {
 
@@ -28,11 +26,5 @@ public class ChangeScenes : Interaction
 
            
         }
-    }
-
-    public override void ActionInput()
-    {
-        SceneManager.LoadScene(_destinationIndex);
-        print("Test555");
     }
 }

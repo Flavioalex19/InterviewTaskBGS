@@ -9,9 +9,10 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI _lineText;
-
+    
     public void Dialogue(List<string> list, int index, bool isPanelOn)
     {
+        //only goes forward if the dialogue panel is on display
         if (isPanelOn)
         {
             if (index < list.Count)

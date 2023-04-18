@@ -10,17 +10,6 @@ public class Interaction : MonoBehaviour
 
     [SerializeField]protected PlayerInput _playerInput;
 
-    private void Update()
-    {
-        //ActionInput();
-        if (_playerInput.IsInteracting)
-        {
-
-            ActionInput();
-        }
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -36,11 +25,5 @@ public class Interaction : MonoBehaviour
         _playerInput = null;
 
     }
-    //Verify if the player pressed the button to interect
-    public virtual void ActionInput()
-    {
-        //if (_playerInput.IsInteracting) return true;
-        //else return false;
-
-    }
+    
 }
