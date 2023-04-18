@@ -94,6 +94,7 @@ public class ItemInventory : MonoBehaviour
         {
             if (_inventoryManager._itemList[i].Index == MyItemIndex)
             {
+                _inventoryManager._totalCoins += _inventoryManager._itemList[i].Cost;
                 _inventoryManager._itemList[i].IsEquiped = false;
                 _inventoryManager._itemList.Remove(_inventoryManager._itemList[i]);
                 //Remove from inventory grid

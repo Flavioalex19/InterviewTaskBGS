@@ -53,6 +53,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             IsMenuOpen = !IsMenuOpen;
+            Application.Quit();
         }
 
 

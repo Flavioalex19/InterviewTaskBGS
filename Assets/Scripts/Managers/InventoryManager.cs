@@ -20,7 +20,8 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     [SerializeField]GridLayoutGroup _store_gridLayoutGroup;//Grid Layout for the character in the Shop Panel
-    [SerializeField] int _currentEquipedItem;//Testing
+    [SerializeField] int _currentEquipedItem;
+
   
 
 

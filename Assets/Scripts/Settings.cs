@@ -9,7 +9,7 @@ public class Settings : MonoBehaviour
     InventoryManager _inventoryManager;
 
 
-    Button button_Quit;
+    public Button button_Quit;
 
     // Start is called before the first frame update
     void Start()
